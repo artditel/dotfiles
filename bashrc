@@ -115,7 +115,11 @@ fi
 
 PS1='\e[33;1m\u@\h: \e[31m\W\e[0m\$ '
 export GREP_OPTIONS='--color=auto'
-alias ls='ls --color=auto'
+if [[ $(uname) == Darwin* ]]; then
+  alias ls='gls --color=auto'
+else
+  alias ls='ls --color=auto'
+fi
 export EDITOR=vim
 export LC_ALL="en_US.UTF-8"
 
