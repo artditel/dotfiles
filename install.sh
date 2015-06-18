@@ -23,4 +23,3 @@ link_if_missing $DIR/bash_profile $HOME/.bash_profile
 
 mkdir -p $HOME/.vim/undo
 vim +PluginInstall +qall
-. ~/.bashrc
