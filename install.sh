@@ -12,14 +12,15 @@ function link_if_missing()
   fi
 }
 
-(cd $PWD; git submodule update --init)
+DIR=$(dirname $0)
+(cd $DIR; git submodule update --init)
 
-link_if_missing $PWD/vim        $HOME/.vim
-link_if_missing $PWD/gitconfig  $HOME/.gitconfig
-link_if_missing $PWD/vimrc      $HOME/.vimrc
-link_if_missing $PWD/bashrc      $HOME/.bashrc
-link_if_missing $PWD/bash_profile      $HOME/.bash_profile
+link_if_missing $DIR/vim          $HOME/.vim
+link_if_missing $DIR/gitconfig    $HOME/.gitconfig
+link_if_missing $DIR/vimrc        $HOME/.vimrc
+link_if_missing $DIR/bashrc       $HOME/.bashrc
+link_if_missing $DIR/bash_profile $HOME/.bash_profile
 
-mkdir $HOME/.vim/undo
+mkdir -p $HOME/.vim/undo
 vim +PluginInstall +qall
 . ~/.bashrc

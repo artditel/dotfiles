@@ -1,1 +1,1 @@
-vim/ftplugin/cpp.vim
+cpp.vim
