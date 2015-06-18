@@ -1,0 +1,18 @@
+[user]
+  email = a@aimfund.ru
+  name = Artem Verkhoglyadov
+[push]
+  default = simple
+[pull]
+  rebase = true
+[merge]
+  tool = vimdiff
+[color]
+  ui = true
+[alias]
+  co = checkout
+  ci = commit
+  st = status --short
+[core]
+  autocrlf = input
+  safecrlf = true
