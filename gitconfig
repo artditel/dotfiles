@@ -16,3 +16,5 @@
 [core]
   autocrlf = input
   safecrlf = true
+[credential]
+  helper = cache
