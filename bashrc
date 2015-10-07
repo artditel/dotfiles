@@ -127,3 +127,4 @@ export LC_ALL="en_US.UTF-8"
 HISTCONTROL=ignoreboth
 HISTFILESIZE=100000
 HISTSIZE=100000
+export PATH="/usr/local/sbin:$PATH"
