@@ -12,7 +12,12 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-jp/cpp-vim'
 Plugin 'elzr/vim-json'
+Plugin 'aperezdc/vim-template'
 let g:vim_json_syntax_conceal = 0
+let g:templates_no_builtin_templates = 1
+let g:templates_directory = "~/.vim/templates"
+let g:templates_global_name_prefix = "vim_template"
+let g:templates_user_variables = [ ['CONFIDENTIAL', 'GetConfidential'], ]
 
 call vundle#end()
 filetype plugin indent on
@@ -259,6 +264,13 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+function! GetConfidential()
+  let l:path = findfile("CONFIDENTIAL", ".;")
+  let l:confidential = substitute(system("cat " . l:path), '\n\+$', '', '')
+  return l:confidential
+endfunction
+
 
 " set textwidth=100
 " set colorcolumn=+1

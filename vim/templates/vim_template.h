@@ -1,0 +1,4 @@
+// %CONFIDENTIAL%
+#pragma once
+
+%HERE%
