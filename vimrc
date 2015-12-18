@@ -280,3 +280,5 @@ set backspace=2
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> <Esc>:w<CR>:make -j 1<CR><Enter>:copen<CR>
 map <F6> <Esc>:w<CR>:make -j 10<CR><Enter>:copen<CR>
+
+:nnoremap gr :!ack '\b<cword>\b' %:p:h/*<CR>
