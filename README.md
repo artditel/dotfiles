@@ -1,6 +1,6 @@
 ## Installation
 ```terminal
-git clone git://github.com/artditel/dotfiles ~/.dotfiles
+git clone https://github.com/artditel/dotfiles ~/.dotfiles
 ~/.dotfiles/install.sh
 . ~/.bashrc
 ```
