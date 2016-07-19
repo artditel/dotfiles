@@ -13,6 +13,7 @@ Plugin 'gmarik/vundle'
 Plugin 'vim-jp/cpp-vim'
 Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
+Plugin 'mileszs/ack.vim'
 let g:vim_json_syntax_conceal = 0
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = "~/.vim/templates"
