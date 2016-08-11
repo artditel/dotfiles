@@ -113,7 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export GREP_OPTIONS='--color=auto'
 if [[ $(uname) == Darwin* ]]; then
   alias ls='gls --color=auto'
 else
