@@ -9,16 +9,22 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
-Plugin 'vim-jp/cpp-vim'
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'vim-jp/cpp-vim'
+Plugin 'dracula/vim'
 Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
 Plugin 'mileszs/ack.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mh21/errormarker.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 let g:vim_json_syntax_conceal = 0
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = "~/.vim/templates"
 let g:templates_global_name_prefix = "vim_template"
 let g:templates_user_variables = [ ['CONFIDENTIAL', 'GetConfidential'], ]
+
+let g:ycm_confirm_extra_conf = 0
 
 call vundle#end()
 filetype plugin indent on
@@ -97,8 +103,8 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme elflord
-set background=dark
+"colorscheme elflord
+""set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -280,6 +286,6 @@ set backspace=2
 
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> <Esc>:w<CR>:make -j 1<CR><Enter>:copen<CR>
-map <F6> <Esc>:w<CR>:make -j 10<CR><Enter>:copen<CR>
+map <F6> <Esc>:w<CR>:make -j 4<CR><Enter>:copen<CR>
 
 :nnoremap gr :!ack '\b<cword>\b' %:p:h/*<CR>
