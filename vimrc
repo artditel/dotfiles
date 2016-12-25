@@ -10,7 +10,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-jp/cpp-vim'
 Plugin 'dracula/vim'
 Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
@@ -103,8 +102,8 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-"colorscheme elflord
-""set background=dark
+set t_Co=256
+color dracula
 
 " Set extra options when running in GUI mode
 if has("gui_running")
