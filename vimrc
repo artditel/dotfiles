@@ -10,13 +10,17 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'chrisbra/histwin.vim'
 Plugin 'dracula/vim'
 Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'mh21/errormarker.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'fatih/vim-go'
+Plugin 'AndrewRadev/linediff.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'bfrg/vim-cpp-modern'
 let g:vim_json_syntax_conceal = 0
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = "~/.vim/templates"
@@ -38,7 +42,7 @@ nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " Undo
 set undodir=~/.vim/undo
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
+set undolevels=10000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " Sets how many lines of history VIM has to remember
@@ -285,6 +289,7 @@ set backspace=2
 
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> <Esc>:w<CR>:make -j 1<CR><Enter>:copen<CR>
-map <F6> <Esc>:w<CR>:make -j 4<CR><Enter>:copen<CR>
+map <F6> <Esc>:w<CR>:make -j 8<CR><Enter>:copen<CR>
 
 :nnoremap gr :!ack '\b<cword>\b' %:p:h/*<CR>
+:nnoremap gy :YcmCompleter GoTo<CR>

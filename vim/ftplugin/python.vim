@@ -4,4 +4,4 @@ setlocal expandtab
 setlocal autoindent
 setlocal smarttab
 setlocal formatoptions=croql
-setlocal colorcolumn=101
+setlocal colorcolumn=121
