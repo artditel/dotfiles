@@ -23,4 +23,4 @@ link_if_missing $DIR/bash_profile $HOME/.bash_profile
 
 mkdir -p $HOME/.vim/undo
 vim +PluginInstall +qall
-(cd ~/.vim/bundle/YouCompleteMe; ./install.py --clang-completer)
+(cd ~/.vim/bundle/YouCompleteMe; ./install.py --clangd-completer)
