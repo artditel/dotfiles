@@ -287,9 +287,39 @@ endfunction
 " hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 set backspace=2
 
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F5> <Esc>:w<CR>:make -j 1<CR><Enter>:copen<CR>
 map <F6> <Esc>:w<CR>:make -j 8<CR><Enter>:copen<CR>
+
+
+function! FileExistsOrOpened(filename)
+  return filereadable(a:filename) || strlen(bufname(a:filename)) > 0
+endfun
+
+function! CppFlip(action)
+  if match(expand("%"),'\.cpp$') > 0
+    let s:hname = substitute(expand("%"),'\.cpp$','.h',"")
+    exe a:action " " s:hname
+  elseif match(expand("%"),"-inl\.h$") > 0
+    let s:cppname = substitute(expand("%"),'-inl\.h$','.cpp',"")
+    if FileExistsOrOpened(s:cppname)
+      exe a:action " " s:cppname
+    else
+      let s:hname = substitute(expand("%"),'-inl\.h$','.h',"")
+      exe a:action " " s:hname
+    endif
+  elseif match(expand("%"),"\.h$") > 0
+    let s:inlname = substitute(expand("%"),'\.h$','-inl.h',"")
+    if FileExistsOrOpened(s:inlname)
+      exe a:action " " s:inlname
+    else
+      let s:cppname = substitute(expand("%"),'\.h$','.cpp',"")
+      exe a:action " " s:cppname
+    endif
+  endif
+endfun
+
+map <F3> :call CppFlip(":sp")<CR>
+map <F4> :call CppFlip("e")<CR>
 
 :nnoremap gr :!ack '\b<cword>\b' %:p:h/*<CR>
 :nnoremap gy :YcmCompleter GoTo<CR>
